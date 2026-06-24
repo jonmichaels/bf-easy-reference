@@ -41,6 +41,10 @@
       },
       "CONDITION": {
         "WARN_NO_CONDITION": "No condition selected."
+      },
+      "CALCULATION": {
+        "HINT": "Enter a deterministic formula. Dice expressions are not valid in Black Flag calc enrichers.",
+        "INSERT_PATH": "Insert roll-data path"
       }
     },
     "DETECT": {
@@ -155,6 +159,10 @@
       "WEAPONMASTERIES": {
         "SETTING_NAME": "Show Weapon Masteries",
         "TITLE": "Weapon Masteries"
+      },
+      "CALCULATION": {
+        "SETTING_NAME": "Show Calculation",
+        "TITLE": "Calculation"
       }
     },
     "SETTINGS": {

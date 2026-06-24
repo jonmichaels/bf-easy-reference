@@ -100,4 +100,12 @@ assert(read('scripts/applications/lookup-formula.mjs').includes('BlackFlag.utils
 assert.equal(en.BFREF.MENU.ITEMPROPERTIES.TITLE, 'Properties');
 assert.equal(en.BFREF.MENU.ITEMPROPERTIES.SETTING_NAME, 'Show Properties');
 
+assert(read('scripts/config.mjs').includes('CalculationFormulaDialog'), 'calculation menu should be registered');
+assert(read('scripts/config.mjs').includes('showcalculation'), 'calculation menu setting should be registered');
+assert(read('scripts/applications/calculation-formula.mjs').includes('return `[[calc ${formula}]]`;'), 'calculation dialog should emit Black Flag calc enricher syntax');
+assert(read('scripts/applications/calculation-formula.mjs').includes('CONFIG.Actor.trackableAttributes'), 'calculation dialog should offer Black Flag trackable roll-data paths');
+assert(read('templates/calculation/formulas.hbs').includes('calculationPathHelper'), 'calculation template should expose roll-data path helper');
+assert.equal(en.BFREF.MENU.CALCULATION.TITLE, 'Calculation');
+
+
 console.log('static checks passed');

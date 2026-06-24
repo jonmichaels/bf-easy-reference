@@ -4,6 +4,7 @@
 
 import AttackFormulaDialog from "./applications/attack-formula.mjs";
 import CheckFormulaDialog from "./applications/check-formula.mjs";
+import CalculationFormulaDialog from "./applications/calculation-formula.mjs";
 import ConditionFormulaDialog from "./applications/condition-formula.mjs";
 import DamageFormulaDialog from "./applications/damage-formula.mjs";
 import HealFormulaDialog from "./applications/heal-formula.mjs";
@@ -97,6 +98,17 @@ export function getMenuConfig() {
         name: "BFREF.MENU.LOOKUP.SETTING_NAME",
       },
       title: "BFREF.MENU.LOOKUP.TITLE",
+    },
+    calculation: {
+      onMenuItemClick: async (menu) => {
+        const text = await CalculationFormulaDialog.create();
+        insertText({ text, menu });
+      },
+      setting: {
+        key: "showcalculation",
+        name: "BFREF.MENU.CALCULATION.SETTING_NAME",
+      },
+      title: "BFREF.MENU.CALCULATION.TITLE",
     },
     rules: {
       onMenuItemClick: async (menu) => {

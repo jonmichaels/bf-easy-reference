@@ -1,0 +1,23 @@
+<fieldset>
+  <div class="form-group">
+    <label>{{localize "BFREF.DIALOG.FORMULA"}}</label>
+    <div class="form-fields">
+      {{ formInput formula.field value=formula.value name="formula" type="text" }}
+    </div>
+    <p class="hint">{{localize "BFREF.DIALOG.CALCULATION.HINT"}}</p>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "BFREF.DIALOG.SELECT_ATTRIBUTE"}}</label>
+    <div class="form-fields">
+      <select name="calculationPathHelper">
+        <option value="">{{localize "BFREF.DIALOG.CALCULATION.INSERT_PATH"}}</option>
+        {{#each trackableOptions}}
+        <option value="{{this.value}}">
+          {{#if this.group}}{{this.group}}: {{/if}}{{this.label}}
+        </option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+</fieldset>
