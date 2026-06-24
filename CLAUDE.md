@@ -1,11 +1,11 @@
-# Black Flag Easy References
+# Black Flag Easy Reference
 
 Foundry VTT module ported from `kgar/dnd-easy-reference` for Black Flag v2/v3.
 
 ## Requirements
 
 - Module id: `bf-easy-reference`
-- Public title: `Black Flag Easy References`
+- Public title: `Black Flag Easy Reference`
 - Supported Foundry: v13 minimum, verified v14
 - Supported system: Black Flag v2 minimum, verified v3
 - Do not add `compatibility.maximum` anywhere in `module.json`.
