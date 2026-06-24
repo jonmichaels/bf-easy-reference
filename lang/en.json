@@ -74,8 +74,8 @@
         "TITLE": "Awards"
       },
       "CHECKS": {
-        "SETTING_NAME": "Show Ability Checks",
-        "TITLE": "Ability Checks"
+        "SETTING_NAME": "Show Checks",
+        "TITLE": "Checks"
       },
       "CONDITIONTYPES": {
         "SETTING_NAME": "Show Conditions",

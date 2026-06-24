@@ -79,8 +79,10 @@ assert(read('templates/save/formulas.hbs').includes('value="{{value}}"'), 'save 
 
 
 const en = JSON.parse(read('lang/en.json'));
-assert.equal(en.BFREF.MENU.CHECKS.TITLE, 'Ability Checks');
+assert.equal(en.BFREF.MENU.CHECKS.TITLE, 'Checks');
 assert.equal(en.BFREF.MENU.SAVES.TITLE, 'Saving Throws');
-assert.notEqual(en.BFREF.MENU.CHECKS.TITLE, en.BFREF.MENU.SAVES.TITLE, 'ability checks and saving throws must remain distinct menu labels');
+assert(read('scripts/applications/check-formula.mjs').includes('`[[/check ${command}]]`'), 'Checks menu should still emit Black Flag ability/skill/tool check rolls');
+assert(read('scripts/applications/save-formula.mjs').includes('const commandType = this.#model.useConcentration ? "concentration" : "save";'), 'Saving Throws menu should still emit Black Flag save/concentration rolls');
+assert.notEqual(en.BFREF.MENU.CHECKS.TITLE, en.BFREF.MENU.SAVES.TITLE, 'checks and saving throws must remain distinct menu labels');
 
 console.log('static checks passed');
