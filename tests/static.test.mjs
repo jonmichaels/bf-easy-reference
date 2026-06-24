@@ -67,4 +67,10 @@ assert(read('templates/check/formulas.hbs').includes('value="{{value}}"'), 'chec
 assert(read('scripts/applications/condition-formula.mjs').includes('CONFIG.BlackFlag.conditions'), 'condition dialog should use Black Flag conditions config');
 assert(read('scripts/applications/condition-formula.mjs').includes('&Reference[condition=${this.#model.condition}'), 'condition dialog should emit typed Black Flag condition references');
 
+
+assert(read('scripts/applications/heal-formula.mjs').includes('CONFIG.BlackFlag.healingTypes.localizedOptions'), 'heal dialog should use localized healing type options');
+assert(!read('scripts/applications/heal-formula.mjs').includes('formula=${formula}'), 'heal enricher should use Black Flag positional formula syntax');
+assert(read('scripts/applications/heal-formula.mjs').includes('healType !== "healing"'), 'normal healing should rely on Black Flag default heal type');
+assert(read('templates/heal/formulas.hbs').includes('value="{{value}}"'), 'heal template should render localized option arrays');
+
 console.log('static checks passed');

@@ -60,11 +60,11 @@ export default class HealFormulaDialog extends HandlebarsApplicationMixin(
     let command = "[[/heal";
 
     if (formula) {
-      command += ` formula=${formula}`;
+      command += ` ${formula}`;
     }
 
-    if (healType) {
-      command += ` type=${healType}`;
+    if (healType && healType !== "healing") {
+      command += ` ${healType}`;
     }
 
     const options = [
@@ -107,7 +107,7 @@ export default class HealFormulaDialog extends HandlebarsApplicationMixin(
       value: this.#model.extended,
     };
 
-    context.healingTypes = CONFIG.BlackFlag.healingTypes;
+    context.healingTypes = CONFIG.BlackFlag.healingTypes.localizedOptions;
 
     context.buttons = [
       {
@@ -180,7 +180,7 @@ class HealFormulaModel extends foundry.abstract.DataModel {
       healType: new foundry.data.fields.StringField({
         required: true,
         initial: "healing",
-        choices: Object.keys(CONFIG.BlackFlag.healingTypes),
+        choices: CONFIG.BlackFlag.healingTypes.localizedOptions.map(({ value }) => value),
         label: "BFREF.DIALOG.TYPES",
       }),
       average: new BooleanField({

@@ -11,7 +11,7 @@
     <div class="form-fields">
       <select name="healType">
         {{#each healingTypes}}
-        <option value="{{@key}}" {{#if (eq ../healType.value @key)}}selected{{/if}}>{{this.label}}</option>
+        <option value="{{value}}" {{#if (eq ../healType.value value)}}selected{{/if}}>{{label}}</option>
         {{/each}}
       </select>
     </div>
