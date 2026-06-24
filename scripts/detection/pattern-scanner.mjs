@@ -165,7 +165,7 @@ async function findAndPromptNextMatch() {
 				// Each block populates `initialData` for dialogs or `referenceKey` for direct references
 				// Sets `dataExtracted` to true on successful extraction.
 				if (type === "heal") {
-					// Gets average value, formula string, and if it's temporary or not
+					// Gets formula string and whether it is temporary healing.
 					const averageValue = matchResult[patternConfig.averageGroup];
 					const formulaInParens =
 						matchResult[patternConfig.formulaInParensGroup];
@@ -175,7 +175,6 @@ async function findAndPromptNextMatch() {
 					// Determines formula and if average was provided
 					if (averageValue && formulaInParens) {
 						formula = formulaInParens.trim();
-						initialData.average = true;
 					} else if (directFormula) {
 						formula = directFormula.trim();
 						const quoteChar =
@@ -187,12 +186,11 @@ async function findAndPromptNextMatch() {
 						) {
 							formula = formula.substring(1, formula.length - 1);
 						}
-						initialData.average = false;
 					}
 					//sets initial data for dialog
 					if (formula) {
 						initialData.formula = formula;
-						initialData.healType = isTemporary ? "temphp" : "healing";
+						initialData.healType = isTemporary ? "temp" : "healing";
 						dataExtracted = true;
 					}
 				} else if (type === "save") {

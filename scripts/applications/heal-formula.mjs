@@ -1,6 +1,4 @@
 const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
-const { BooleanField } = foundry.data.fields;
-
 export default class HealFormulaDialog extends HandlebarsApplicationMixin(
   ApplicationV2
 ) {
@@ -54,8 +52,7 @@ export default class HealFormulaDialog extends HandlebarsApplicationMixin(
     const formula = this.#model.formula;
     const healType = this.#model.healType;
 
-    if (!formula && !healType && !this.#model.average && !this.#model.extended)
-      return null;
+    if (!formula && !healType) return null;
 
     let command = "[[/heal";
 
@@ -67,16 +64,6 @@ export default class HealFormulaDialog extends HandlebarsApplicationMixin(
       command += ` ${healType}`;
     }
 
-    const options = [
-      this.#model.average ? "average" : null,
-      this.#model.extended ? "extended" : null,
-    ]
-      .filter(Boolean)
-      .join(" ");
-
-    if (options) {
-      command += ` ${options}`;
-    }
 
     command += "]]";
 
@@ -97,15 +84,6 @@ export default class HealFormulaDialog extends HandlebarsApplicationMixin(
       value: this.#model.healType,
     };
 
-    context.average = {
-      field: this.#model.schema.getField("average"),
-      value: this.#model.average,
-    };
-
-    context.extended = {
-      field: this.#model.schema.getField("extended"),
-      value: this.#model.extended,
-    };
 
     context.healingTypes = CONFIG.BlackFlag.healingTypes.localizedOptions;
 
@@ -182,12 +160,6 @@ class HealFormulaModel extends foundry.abstract.DataModel {
         initial: "healing",
         choices: CONFIG.BlackFlag.healingTypes.localizedOptions.map(({ value }) => value),
         label: "BFREF.DIALOG.TYPES",
-      }),
-      average: new BooleanField({
-        label: "BFREF.DIALOG.AVERAGE",
-      }),
-      extended: new BooleanField({
-        label: "BFREF.DIALOG.EXTENDED",
       }),
     };
   }

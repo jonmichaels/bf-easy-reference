@@ -73,6 +73,13 @@ assert(!read('scripts/applications/heal-formula.mjs').includes('formula=${formul
 assert(read('scripts/applications/heal-formula.mjs').includes('healType !== "healing"'), 'normal healing should rely on Black Flag default heal type');
 assert(read('templates/heal/formulas.hbs').includes('value="{{value}}"'), 'heal template should render localized option arrays');
 
+assert(!read('scripts/applications/heal-formula.mjs').includes('average'), 'heal dialog should not expose average option');
+assert(!read('scripts/applications/heal-formula.mjs').includes('extended'), 'heal dialog should not expose extended option');
+assert(!read('templates/heal/formulas.hbs').includes('AVERAGE'), 'heal template should not render average option');
+assert(!read('templates/heal/formulas.hbs').includes('EXTENDED'), 'heal template should not render extended option');
+assert(read('scripts/detection/pattern-scanner.mjs').includes('isTemporary ? "temp" : "healing"'), 'heal pattern detection should use Black Flag temp healing slug');
+
+
 
 assert(read('scripts/applications/save-formula.mjs').includes('CONFIG.BlackFlag.abilities.localizedOptions'), 'save dialog should use localized ability options');
 assert(read('templates/save/formulas.hbs').includes('value="{{value}}"'), 'save template should render localized option arrays');
