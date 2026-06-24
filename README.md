@@ -1,6 +1,6 @@
-# Black Flag Easy References
+# Black Flag Easy Reference
 
-A Foundry VTT module for Black Flag v2/v3 that adds a **Black Flag Easy References** dropdown to ProseMirror journal editors.
+A Foundry VTT module for Black Flag v2/v3 that adds a **Black Flag Easy Reference** dropdown to ProseMirror journal editors.
 
 This is a Black Flag port of [`kgar/dnd-easy-reference`](https://github.com/kgar/dnd-easy-reference). It keeps the same lightweight goal: make common references, formulas, and styled blocks quick to insert while writing journals.
 
