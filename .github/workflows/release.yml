@@ -1,0 +1,47 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update manifest release URLs
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const manifest = JSON.parse(fs.readFileSync('module.json', 'utf8'));
+          const repo = process.env.GITHUB_REPOSITORY;
+          const tag = process.env.GITHUB_REF_NAME;
+          manifest.version = tag.replace(/^v/, '');
+          manifest.manifest = `https://github.com/${repo}/releases/latest/download/module.json`;
+          manifest.download = `https://github.com/${repo}/releases/latest/download/module.zip`;
+          manifest.url = `https://github.com/${repo}`;
+          function walk(o, p = []) {
+            if (!o || typeof o !== 'object') return;
+            for (const [k, v] of Object.entries(o)) {
+              if (k === 'maximum') throw new Error(`compatibility.maximum is not allowed at ${p.concat(k).join('.')}`);
+              walk(v, p.concat(k));
+            }
+          }
+          walk(manifest);
+          fs.writeFileSync('module.json', JSON.stringify(manifest, null, 2) + '\n');
+          NODE
+
+      - name: Create module archive
+        run: zip -r module.zip module.json main.mjs lang scripts styles templates -x '*/.*'
+
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            module.json
+            module.zip

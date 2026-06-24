@@ -1,0 +1,21 @@
+<section class="formulas {{#unless parts.length}}hidden{{/unless}}">
+  <fieldset>
+    <legend>{{localize "BFREF.DIALOG.DAMAGE_PARTS"}}</legend>
+    {{#each parts}}
+    {{#if rule}}
+    <hr>
+    {{/if}}
+    <div class="form-group">
+      <div class="form-fields">
+        {{ formInput formula.field value=formula.value placeholder=formula.placeholder name=formula.name }}
+      </div>
+      <div class="controls flex0">
+        <button type="button" data-action="deletePart" data-idx="{{idx}}" data-tooltip="BFREF.DIALOG.DELETE">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+    </div>
+    {{ formGroup types.field value=types.value name=types.name label=(localize "BFREF.DIALOG.DAMAGE_TYPES")}}
+    {{/each}}
+  </fieldset>
+</section>

@@ -1,0 +1,33 @@
+<fieldset>
+  <div class="form-group">
+    <label>{{localize "BFREF.DIALOG.FORMULA"}}</label>
+    <div class="form-fields">
+      {{ formInput formula.field value=formula.value name="formula" type="text" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "BFREF.DIALOG.TYPES"}}</label>
+    <div class="form-fields">
+      <select name="healType">
+        {{#each healingTypes}}
+        <option value="{{@key}}" {{#if (eq ../healType.value @key)}}selected{{/if}}>{{this.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "BFREF.DIALOG.AVERAGE"}}</label>
+    <div class="form-fields">
+      <input type="checkbox" name="average" {{#if average.value}}checked{{/if}}>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "BFREF.DIALOG.EXTENDED"}}</label>
+    <div class="form-fields">
+      <input type="checkbox" name="extended" {{#if extended.value}}checked{{/if}}>
+    </div>
+  </div>
+</fieldset>

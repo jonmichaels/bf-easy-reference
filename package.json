@@ -1,0 +1,33 @@
+{
+  "name": "bf-easy-reference",
+  "version": "0.1.0",
+  "description": "Adds a Black Flag Easy References menu to ProseMirror for quicker journal links and formulas.",
+  "keywords": [
+    "foundry",
+    "black-flag",
+    "prose",
+    "mirror",
+    "text",
+    "editor",
+    "utilities"
+  ],
+  "homepage": "https://github.com/jonmichaels/bf-easy-reference#readme",
+  "bugs": {
+    "url": "https://github.com/jonmichaels/bf-easy-reference/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonmichaels/bf-easy-reference.git"
+  },
+  "license": "MIT",
+  "author": "padhiver, kgar",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "node tests/static.test.mjs",
+    "link": "node ./tools/create-symlinks.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.1"
+  }
+}

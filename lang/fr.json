@@ -1,0 +1,146 @@
+{
+  "BFREF": {
+    "DIALOG": {
+      "APPLY": "Appliquer",
+      "ATTRIBUTES": "Attributs",
+      "AVERAGE": "Moyenne",
+      "CANCEL": "Annuler",
+      "COMBINATION": "Ajouter une combinaison",
+      "CONCENTRATION": "Concentration",
+      "CONFIRM": "Confirmer",
+      "COPPER": "Pièces de cuivre",
+      "DAMAGE_ADD": "Ajouter une section de dégâts",
+      "DAMAGE_PARTS": "Section de dégâts",
+      "DAMAGE_TYPES": "Type de dégâts",
+      "DC": "Difficulté",
+      "DELETE": "Supprimer",
+      "EACH": "Chaque personnage",
+      "EXTENDED": "Étendue",
+      "FORMULA": "Formule",
+      "GOLD": "Pièces d'or",
+      "NAME_FORMAT": {
+        "CAPITALIZE": "Majuscules",
+        "LABEL": "Format du nom",
+        "LOWERCASE": "minuscules",
+        "UPPERCASE": "MAJUSCULES"
+      },
+      "NAME_OPTIONS": "Options de nom",
+      "PASSIVE": "Passif",
+      "PLACEHOLDER": "",
+      "RULES_SEARCH": "Règle",
+      "SELECT_ATTRIBUTE": "Choix d'attribut",
+      "SILVER": "Pièces d'argent",
+      "TYPES": "Types",
+      "USE_NAME": "Nom de l'acteur",
+      "XP": "Points d'expérience",
+      "AWARD_EXPERIENCE": "Expérience",
+      "AWARD_CURRENCY": "Monnaie",
+      "AWARD_OPTIONS": "Options",
+      "LOOKUP": {
+        "USE_NAME": "Nom de l'acteur"
+      },
+      "CONDITION": {
+        "WARN_NO_CONDITION": "No condition selected."
+      }
+    },
+    "DETECT": {
+      "TITLE": "Détecter les références",
+      "PROMPT_TITLE": "Référence trouvée",
+      "PROMPT_CONFIRM": "Convertir ce texte ?",
+      "BUTTON_CONFIRM": "Confirmer",
+      "BUTTON_SKIP": "Passer",
+      "BUTTON_CANCEL": "Annuler le scan",
+      "SCAN_STARTED": "Scan des références de {type} en cours...",
+      "SCAN_COMPLETE": "Scan terminé. Aucune autre référence de {type} trouvée.",
+      "SCAN_ACTIVE": "Un scan de référence est déjà en cours.",
+      "NO_PATTERN_DEF": "Aucune définition de référence trouvée pour {type} en langue {lang} ou en fallback anglais.",
+      "PROMPT_WARNING": "Vérifiez la sélection avant de confirmer."
+    },
+    "MENU": {
+      "ABILITIES": {
+        "TITLE": "Caractéristiques"
+      },
+      "AREATARGETTYPES": {
+        "TITLE": "Types de zones"
+      },
+      "ATTACK": {
+        "TITLE": "Formule d'attaque"
+      },
+      "AWARD": {
+        "TITLE": "Récompenses",
+        "HINT": "Afficher le menu des récompenses dans l'éditeur"
+      },
+      "CHECKS": {
+        "TITLE": "Jets d'opposition"
+      },
+      "CONDITIONTYPES": {
+        "TITLE": "États"
+      },
+      "CREATURETYPES": {
+        "TITLE": "Types de créatures"
+      },
+      "DAMAGE": {
+        "TITLE": "Formule de dégâts"
+      },
+      "DAMAGETYPES": {
+        "TITLE": "Types de dégâts"
+      },
+      "DESCRIPTION": "Sélectionnez les menus à afficher dans ProseMirror.",
+      "DETECTPATTERNS": {
+        "TITLE": "Détection de références"
+      },
+      "DIALOG": "Configurer l'enrichisseur",
+      "HEAL": {
+        "TITLE": "Formule de soins"
+      },
+      "ITEMPROPERTIES": {
+        "TITLE": "Propriétés des sorts"
+      },
+      "LOOKUP": {
+        "TITLE": "Lookup"
+      },
+      "RULES": {
+        "TITLE": "Règles"
+      },
+      "SAVES": {
+        "TITLE": "Jets de sauvegarde"
+      },
+      "SKILLS": {
+        "TITLE": "Compétences"
+      },
+      "STYLE": {
+        "ADVICE": "Conseil",
+        "ADVICE_CONTENT": "Ceci est un bloc de conseil.",
+        "ADVICE_TITLE": "Conseil",
+        "NARRATIVE": "Narratif",
+        "NOTABLE": "Remarquable",
+        "QUEST": "Quête",
+        "QUEST_CONTENT": "Ceci est un bloc de quête.",
+        "QUEST_TITLE": "Quête",
+        "TITLE": "Styles",
+        "TREASURE": "Trésor",
+        "TREASURE_CONTENT": "Ceci est un bloc de trésor.",
+        "TREASURE_TITLE": "Trésor"
+      },
+      "TITLE": "Black Flag Easy References",
+      "TOOLS": {
+        "TITLE": "Outils"
+      },
+      "WEAPONMASTERIES": {
+        "TITLE": "Bottes d'armes"
+      }
+    },
+    "SETTINGS": {
+      "FORMAT": {
+        "LONG": "Format long",
+        "SHORT": "Format court",
+        "TITLE": "Format"
+      },
+      "MENU": {
+        "HINT": "Configurer les enrichisseurs qui apparaissent dans le menu Black Flag",
+        "LABEL": "Configurer les enrichisseurs",
+        "TITLE": "Configuration du menu"
+      }
+    }
+  }
+}

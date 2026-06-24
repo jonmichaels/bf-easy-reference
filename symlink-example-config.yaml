@@ -1,0 +1,5 @@
+# Indicate your Foundry install path for Foundry and black-flag intellisense support.
+# Create a file in this folder called symlink-config.yaml with this data.
+# To generate a link, use `npm run link`
+foundryInstallPath: "C:\\Program Files\\Foundry Virtual Tabletop 13"
+blackFlagInstallPath: "C:\\Program Files\\FoundryVTT-14\\Data\\systems\\black-flag"

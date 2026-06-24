@@ -1,0 +1,33 @@
+<div class="award-config standard-form">
+  <fieldset>
+    <legend>{{localize "BFREF.DIALOG.AWARD_EXPERIENCE"}}</legend>
+    <div class="form-group inline-form-group">
+      <label>{{localize xp.field.label}}</label>
+      <div class="form-fields">
+        {{formInput xp.field value=xp.value name="xp"}}
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>{{localize "BFREF.DIALOG.AWARD_CURRENCY"}}</legend>
+    {{#each currencies}}
+      <div class="form-group inline-form-group">
+        <label>{{localize field.label}}</label>
+        <div class="form-fields">
+          {{formInput field value=value name=field.fieldPath}}
+        </div>
+      </div>
+    {{/each}}
+  </fieldset>
+
+  <fieldset>
+    <legend>{{localize "BFREF.DIALOG.AWARD_OPTIONS"}}</legend>
+    <div class="form-group inline-form-group">
+      <label>{{localize each.field.label}}</label>
+      <div class="form-fields">
+        {{formInput each.field value=each.value name="each"}}
+      </div>
+    </div>
+  </fieldset>
+</div>

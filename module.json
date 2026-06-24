@@ -1,0 +1,101 @@
+{
+  "id": "bf-easy-reference",
+  "title": "Black Flag Easy References",
+  "description": "Simple solution: add a menu in ProseMirror to get Black Flag references directly in journals.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "Jon Michaels",
+      "url": "https://github.com/jonmichaels"
+    },
+    {
+      "name": "Padhiver",
+      "discord": "Padhiver"
+    },
+    {
+      "name": "kgar",
+      "discord": "_kgar"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json",
+      "flags": {}
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "it",
+      "name": "Italiano",
+      "path": "lang/it.json",
+      "flags": {}
+    },
+    {
+      "lang": "ru",
+      "name": "Russian",
+      "path": "lang/ru.json",
+      "flags": {}
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json",
+      "flags": {}
+    },
+    {
+      "lang": "pl",
+      "name": "Polski",
+      "path": "lang/pl.json",
+      "flags": {}
+    },
+    {
+      "lang": "cn",
+      "name": "Simplified Chinese",
+      "path": "lang/cn.json",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "./main.mjs"
+  ],
+  "styles": [
+    "./styles/menu-config.css"
+  ],
+  "manifest": "https://github.com/jonmichaels/bf-easy-reference/releases/latest/download/module.json",
+  "download": "https://github.com/jonmichaels/bf-easy-reference/releases/latest/download/module.zip",
+  "url": "https://github.com/jonmichaels/bf-easy-reference",
+  "relationships": {
+    "systems": [
+      {
+        "id": "black-flag",
+        "type": "system",
+        "compatibility": {
+          "minimum": "2.0.0",
+          "verified": "3.0.075"
+        }
+      }
+    ]
+  },
+  "flags": {
+    "hotReload": {
+      "extensions": [
+        "json",
+        "js"
+      ],
+      "paths": [
+        "lang/",
+        "scripts/"
+      ]
+    }
+  }
+}

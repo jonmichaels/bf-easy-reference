@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "paths": {
+      "@client/*": ["./foundry/client/*"],
+      "@common/*": ["./foundry/common/*"]
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"],
+  "include": [
+    "main.mjs",
+    "foundry/black-flag/**/*.mjs",
+    "foundry/client/client.mjs",
+    "foundry/client/global.d.mts",
+    "foundry/common/primitives/global.d.mts",
+    "scripts/types/foundry.d.ts"
+  ],
+  "typeAcquisition": {
+    "include": ["jquery"]
+  }
+}

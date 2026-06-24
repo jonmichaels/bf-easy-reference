@@ -1,0 +1,131 @@
+{
+  "BFREF": {
+    "DIALOG": {
+      "APPLY": "Применить",
+      "ATTRIBUTES": "Аттрибуты",
+      "AVERAGE": "Среднее значение",
+      "CANCEL": "Отмена",
+      "COMBINATION": "Комбинация",
+      "CONCENTRATION": "Концентрация",
+      "CONFIRM": "Подтвердить",
+      "DAMAGE_ADD": "Добавить раздел урона",
+      "DAMAGE_PARTS": "Разделение урона",
+      "DAMAGE_TYPES": "Тип урона",
+      "DC": "СЛ",
+      "DELETE": "Удалить",
+      "EXTENDED": "Расширенный формат",
+      "FORMULA": "Формула",
+      "NAME_FORMAT": {
+        "CAPITALIZE": "Капитализация",
+        "LABEL": "Форматирование",
+        "LOWERCASE": "нижний регистр",
+        "UPPERCASE": "ВЕРХНИЙ РЕГИСТР"
+      },
+      "NAME_OPTIONS": "Настройки названия",
+      "PASSIVE": "Пассивная",
+      "PLACEHOLDER": "",
+      "RULES_SEARCH": "Правило",
+      "SELECT_ATTRIBUTE": "Выберите атрибут",
+      "TYPES": "Тип",
+      "USE_NAME": "Имя актёра",
+      "LOOKUP": {
+        "USE_NAME": "Имя актёра"
+      },
+      "CONDITION": {
+        "WARN_NO_CONDITION": "No condition selected."
+      }
+    },
+    "DETECT": {
+      "TITLE": "Обнаружить Шаблоны",
+      "PROMPT_TITLE": "Шаблон Найден",
+      "PROMPT_CONFIRM": "Преобразовать этот текст?",
+      "BUTTON_CONFIRM": "Подтвердить",
+      "BUTTON_SKIP": "Пропустить",
+      "BUTTON_CANCEL": "Отменить Сканирование",
+      "SCAN_STARTED": "Идет сканирование шаблонов {type}...",
+      "SCAN_COMPLETE": "Сканирование завершено. Больше не найдено шаблонов {type}.",
+      "SCAN_ACTIVE": "Сканирование шаблонов уже выполняется.",
+      "NO_PATTERN_DEF": "Не найдено определение шаблона для {type} на языке {lang} или в английском варианте.",
+      "PROMPT_WARNING": "Проверьте выделение перед подтверждением."
+    },
+    "MENU": {
+      "ABILITIES": {
+        "TITLE": "Характеристика"
+      },
+      "AREATARGETTYPES": {
+        "TITLE": "Тип области действия"
+      },
+      "ATTACK": {
+        "TITLE": "Формула атаки"
+      },
+      "CHECKS": {
+        "TITLE": "Проверка"
+      },
+      "CONDITIONTYPES": {
+        "TITLE": "Состояние"
+      },
+      "CREATURETYPES": {
+        "TITLE": "Тип существа"
+      },
+      "DAMAGE": {
+        "TITLE": "Формула урона"
+      },
+      "DAMAGETYPES": {
+        "TITLE": "Тип урона"
+      },
+      "DESCRIPTION": "Выберите пункты меню, которые будут отображаться в редакторе.",
+      "DIALOG": "Настрока энричера",
+      "HEAL": {
+        "TITLE": "Формула лечения"
+      },
+      "ITEMPROPERTIES": {
+        "TITLE": "Параметры заклинаний"
+      },
+      "LOOKUP": {
+        "TITLE": "lookup"
+      },
+      "RULES": {
+        "TITLE": "Правило"
+      },
+      "SAVES": {
+        "TITLE": "Испытание"
+      },
+      "SKILLS": {
+        "TITLE": "Навык"
+      },
+      "STYLE": {
+        "ADVICE": "Стиль",
+        "ADVICE_CONTENT": "Это блок с советом.",
+        "ADVICE_TITLE": "Совет",
+        "NARRATIVE": "Нарративный блок",
+        "NOTABLE": "Заметки",
+        "QUEST": "Квест",
+        "QUEST_CONTENT": "Это блок с квестом.",
+        "QUEST_TITLE": "Квест",
+        "TITLE": "Стили",
+        "TREASURE": "Сокровища",
+        "TREASURE_CONTENT": "Это блок с сокровищами",
+        "TREASURE_TITLE": "Сокровища"
+      },
+      "TITLE": "Black Flag Easy References",
+      "TOOLS": {
+        "TITLE": "Инструменты"
+      },
+      "WEAPONMASTERIES": {
+        "TITLE": "Свойство мастерства"
+      }
+    },
+    "SETTINGS": {
+      "FORMAT": {
+        "LONG": "Полный",
+        "SHORT": "Короткий",
+        "TITLE": "Формат"
+      },
+      "MENU": {
+        "HINT": "Настройте элементы, которые будут отображаться в меню",
+        "LABEL": "Настройка элементов меню",
+        "TITLE": "Настройка меню"
+      }
+    }
+  }
+}

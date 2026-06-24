@@ -1,0 +1,150 @@
+{
+  "BFREF": {
+    "DIALOG": {
+      "APPLY": "Zastosuj",
+      "ATTRIBUTES": "Atrybuty",
+      "AVERAGE": "Średnia",
+      "CANCEL": "Anuluj",
+      "COMBINATION": "Połączenie",
+      "CONCENTRATION": "Koncentracja",
+      "CONFIRM": "Zatwierdź",
+      "COPPER": "Sztuki miedzi",
+      "DAMAGE_ADD": "Dodaj sekcję obrażeń",
+      "DAMAGE_PARTS": "Sekcja obrażeń",
+      "DAMAGE_TYPES": "Typy obrażeń",
+      "DC": "Trudność",
+      "DELETE": "Usuń",
+      "EACH": "Każda postać",
+      "EXTENDED": "Rozszerzony",
+      "FORMULA": "Formuła",
+      "GOLD": "Sztuki złota",
+      "NAME_FORMAT": {
+        "CAPITALIZE": "Kapitalizuj",
+        "LABEL": "Format nazwy",
+        "LOWERCASE": "małe litery",
+        "UPPERCASE": "WIELKIE LITERY"
+      },
+      "NAME_OPTIONS": "Opcje nazwy",
+      "PASSIVE": "Pasywne",
+      "PLACEHOLDER": "",
+      "RULES_SEARCH": "Zasada",
+      "SELECT_ATTRIBUTE": "Wybierz atrybut",
+      "SILVER": "Sztuki srebra",
+      "TYPES": "Typy",
+      "USE_NAME": "Nazwa aktora",
+      "XP": "Punkty doświadczenia",
+      "AWARD_EXPERIENCE": "Doświadczenie",
+      "AWARD_CURRENCY": "Waluta",
+      "AWARD_OPTIONS": "Opcje",
+      "LOOKUP": {
+        "USE_NAME": "Nazwa aktora"
+      },
+      "CONDITION": {
+        "WARN_NO_CONDITION": "No condition selected."
+      }
+    },
+    "DETECT": {
+      "TITLE": "Wykryj wzorce",
+      "PROMPT_TITLE": "Wykryto wzorzec",
+      "PROMPT_CONFIRM": "Przekonwertować ten tekst?",
+      "BUTTON_CONFIRM": "Zatwierdź",
+      "BUTTON_SKIP": "Pomiń",
+      "BUTTON_CANCEL": "Anuluj skanowanie",
+      "SCAN_STARTED": "Wyszukiwanie wzorców {type}...",
+      "SCAN_COMPLETE": "Skanowanie zakończone. Nie znaleziono więcej wzorców {type}.",
+      "SCAN_ACTIVE": "Skanowanie wzorca jest już w toku.",
+      "NO_PATTERN_DEF": "Nie znaleziono definicji wzorca dla {type} w języku {lang} ani w języku angielskim.",
+      "PROMPT_WARNING": "Przed potwierdzeniem sprawdź wybór."
+    },
+    "MENU": {
+      "ABILITIES": {
+        "TITLE": "Cechy"
+      },
+      "AREATARGETTYPES": {
+        "TITLE": "Rodzaje celów obszarowych"
+      },
+      "ATTACK": {
+        "TITLE": "Formuła ataku"
+      },
+      "AWARD": {
+        "TITLE": "Nagrody",
+        "HINT": "Wyświetl menu nagród w edytorze"
+      },
+      "CHECKS": {
+        "TITLE": "Testy"
+      },
+      "CONDITIONTYPES": {
+        "TITLE": "Stany"
+      },
+      "CREATURETYPES": {
+        "TITLE": "Typy stworzeń"
+      },
+      "DAMAGE": {
+        "TITLE": "Formuła obrażeń"
+      },
+      "DAMAGETYPES": {
+        "TITLE": "Typy obrażeń"
+      },
+      "DESCRIPTION": "Wybierz menu, które ma być wyświetlane w ProseMirror.",
+      "DETECTPATTERNS": {
+        "TITLE": "Wykrywanie wzorców"
+      },
+      "DIALOG": "Konfiguracja wpisu",
+      "HEAL": {
+        "TITLE": "Formuła uzdrawiania"
+      },
+      "ITEMPROPERTIES": {
+        "TITLE": "Właściwości zaklęcia"
+      },
+      "LOOKUP": {
+        "TITLE": "Lookup"
+      },
+      "RULES": {
+        "TITLE": "Zasady"
+      },
+      "SAVES": {
+        "TITLE": "Rzuty obronne"
+      },
+      "SKILLS": {
+        "TITLE": "Umiejętności"
+      },
+      "STYLE": {
+        "ADVICE": "Porady",
+        "ADVICE_CONTENT": "To jest blok porad.",
+        "ADVICE_TITLE": "Porady",
+        "NARRATIVE": "Narracja",
+        "NOTABLE": "Warte uwagi",
+        "QUEST": "Misja",
+        "QUEST_CONTENT": "To jest blok misji.",
+        "QUEST_TITLE": "Misja",
+        "TITLE": "Style",
+        "TREASURE": "Skarb",
+        "TREASURE_CONTENT": "To jest blok skarbów.",
+        "TREASURE_TITLE": "Skarb"
+      },
+      "TITLE": "Black Flag Easy References",
+      "TOOLS": {
+        "TITLE": "Narzędzia"
+      },
+      "WEAPONMASTERIES": {
+        "TITLE": "Mistrzostwo broni"
+      }
+    },
+    "SETTINGS": {
+      "FORMAT": {
+        "LONG": "Długi format",
+        "SHORT": "Krótki format",
+        "TITLE": "Format"
+      },
+      "MENU": {
+        "HINT": "Konfiguracja elementów wyświetlanych w menu Black Flag",
+        "LABEL": "Konfiguracja elementów menu",
+        "TITLE": "Konfiguracja menu"
+      },
+      "PROSEGAP": {
+        "HINT": "Zmniejsza odstęp, aby zapobiec rozpadaniu się ProseMirror na dwie linie podczas dodawania menu Black Flag.",
+        "TITLE": "Redukcja luk ProseMirror"
+      }
+    }
+  }
+}
