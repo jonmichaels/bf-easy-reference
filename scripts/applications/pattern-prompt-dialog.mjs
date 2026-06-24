@@ -16,9 +16,8 @@ export default class PatternPromptDialog extends HandlebarsApplicationMixin(
   }
 
   static DEFAULT_OPTIONS = {
-    classes: ["dnd-pattern-prompt"],
+    classes: ["bf-pattern-prompt"],
     tag: "form",
-    position: { width: 400, height: "auto" },
     window: {
       title: "BFREF.DETECT.PROMPT_TITLE",
       contentClasses: ["dialog-content", "standard-form"],
@@ -61,7 +60,7 @@ export default class PatternPromptDialog extends HandlebarsApplicationMixin(
         buttons: [
           {
             type: "button",
-            icon: 'fas fa-times"',
+            icon: "fas fa-times",
             label:
               game.i18n.localize("BFREF.DETECT.BUTTON_CANCEL") || "Cancel Scan",
             action: "cancel",

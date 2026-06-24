@@ -58,7 +58,7 @@ Hooks.on("getProseMirrorMenuDropDowns", (proseMirrorMenu, dropdowns) => {
     .sort((a, b) => a.title.localeCompare(b.title));
 
   // Assign to own menu
-  dropdowns.dndeasyreference = {
+  dropdowns.bfeasyreference = {
     action: "reference",
     title: '<i class="fa-solid fa-books"></i>',
     entries,

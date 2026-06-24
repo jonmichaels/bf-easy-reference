@@ -27,7 +27,7 @@
 }
 
 /* Si l'option est activée */
-.dnd-widen-windows .app.window-app.black-flag2.sheet.item .prosemirror menu {
+.bf-widen-windows .app.window-app.black-flag2.sheet.item .prosemirror menu {
   gap: 1px;
 }
 
@@ -42,14 +42,14 @@
   }
 }
 
-.dnd-pattern-prompt .warning {
+.bf-pattern-prompt .warning {
   color: orange;
   font-size: 0.9em;
   margin-top: 5px;
   margin-bottom: 10px;
 }
 
-.dnd-pattern-prompt .warning i {
+.bf-pattern-prompt .warning i {
   margin-right: 4px;
 }
 

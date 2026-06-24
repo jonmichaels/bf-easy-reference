@@ -22,7 +22,7 @@
   "license": "MIT",
   "author": "padhiver, kgar",
   "type": "module",
-  "main": "main.js",
+  "main": "main.mjs",
   "scripts": {
     "test": "node tests/static.test.mjs",
     "link": "node ./tools/create-symlinks.mjs"
