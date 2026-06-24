@@ -1,6 +1,6 @@
 {
   "id": "bf-easy-reference",
-  "title": "Black Flag Easy References",
+  "title": "Black Flag Easy Reference",
   "description": "Simple solution: add a menu in ProseMirror to get Black Flag references directly in journals.",
   "version": "0.1.0",
   "compatibility": {
