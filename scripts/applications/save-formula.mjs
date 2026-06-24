@@ -113,7 +113,7 @@ export default class SaveFormulaDialog extends HandlebarsApplicationMixin(
       value: this.#model.useConcentration,
     };
 
-    context.abilities = CONFIG.BlackFlag.abilities;
+    context.abilities = CONFIG.BlackFlag.abilities.localizedOptions;
 
     context.buttons = [
       {
@@ -153,7 +153,7 @@ export default class SaveFormulaDialog extends HandlebarsApplicationMixin(
    */
   static #addSave(event, target) {
     const saves = this.#model.toObject().saves;
-    const defaultAbility = Object.keys(CONFIG.BlackFlag.abilities)[0] || "";
+    const defaultAbility = CONFIG.BlackFlag.abilities.localizedOptions[0]?.value ?? "";
     saves.push({ ability: defaultAbility });
     this.#model.updateSource({ saves });
     this.render({ parts: ["saves"] });
@@ -237,12 +237,12 @@ class SaveFormulaModel extends foundry.abstract.DataModel {
         new foundry.data.fields.SchemaField({
           ability: new foundry.data.fields.StringField({
             required: true,
-            choices: () => CONFIG.BlackFlag.abilities,
+            choices: () => CONFIG.BlackFlag.abilities.localizedOptions.map(({ value }) => value),
           }),
         }),
         {
           initial: () => {
-            const defaultAbility = Object.keys(CONFIG.BlackFlag.abilities)[0] || "";
+            const defaultAbility = CONFIG.BlackFlag.abilities.localizedOptions[0]?.value ?? "";
             return [{ ability: defaultAbility }];
           },
         }

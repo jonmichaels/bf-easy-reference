@@ -73,4 +73,8 @@ assert(!read('scripts/applications/heal-formula.mjs').includes('formula=${formul
 assert(read('scripts/applications/heal-formula.mjs').includes('healType !== "healing"'), 'normal healing should rely on Black Flag default heal type');
 assert(read('templates/heal/formulas.hbs').includes('value="{{value}}"'), 'heal template should render localized option arrays');
 
+
+assert(read('scripts/applications/save-formula.mjs').includes('CONFIG.BlackFlag.abilities.localizedOptions'), 'save dialog should use localized ability options');
+assert(read('templates/save/formulas.hbs').includes('value="{{value}}"'), 'save template should render localized option arrays');
+
 console.log('static checks passed');
