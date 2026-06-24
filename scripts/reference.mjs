@@ -1,5 +1,7 @@
 /** @import { SubMenuItem } from './types/_types.mjs' */
 
+import { insertText } from './prose-mirror/utils.mjs';
+
 /**
  * @typedef SourceDataMenuEntriesOptions
  * @property {string|string[]} source
@@ -27,11 +29,12 @@ export function createSubMenuEntriesFromSourceData({
   const entries = [];
 
   for (const source of sources) {
+    const sourceData = foundry.utils.getProperty(CONFIG.BlackFlag, source) || {};
     entries.push(
-      ...Object.entries(CONFIG.BlackFlag[source] || {})
+      ...Object.entries(sourceData)
         .filter(([key, value]) => !filter || filter(key, value))
         .map(([key, value]) => ({
-          title: value.label || key,
+          title: value.label || value.name || key,
           key: key,
           onMenuItemClick: async (menu) =>
             await callback?.({ key, value, menu }),
@@ -49,11 +52,21 @@ export function createSubMenuEntriesFromSourceData({
  */
 export function createReferenceSubMenuEntriesFromSourceData({
   source,
+  referenceType,
   callback,
 }) {
+  const references = referenceType
+    ? CONFIG.BlackFlag.ruleTypes?.[referenceType]?.references
+    : null;
+  const resolvedSource = references ?? source;
   return createSubMenuEntriesFromSourceData({
-    source,
+    source: resolvedSource,
     callback,
-    filter: (_key, value) => !!value.reference,
+    filter: (_key, value) => !!value.reference || typeof value === "string",
   });
+}
+
+export function insertReference({ key, menu, type }) {
+  const reference = type ? `${type}=${key}` : key;
+  insertText({ text: `&Reference[${reference}]`, menu });
 }

@@ -12,7 +12,7 @@ import LookupFormulaDialog from "./applications/lookup-formula.mjs";
 import RuleFormulaDialog from "./applications/rule-formula.mjs";
 import SaveFormulaDialog from "./applications/save-formula.mjs";
 import { insertText } from "./prose-mirror/utils.mjs";
-import { createReferenceSubMenuEntriesFromSourceData } from "./reference.mjs";
+import { createReferenceSubMenuEntriesFromSourceData, insertReference } from "./reference.mjs";
 import { getDetectionSubMenuItems } from "./detection/menu-setup.mjs";
 import { getStyleMenuSubItems } from "./style-blocks/menu-setup.mjs";
 
@@ -121,35 +121,6 @@ export function getMenuConfig() {
       },
       title: "BFREF.MENU.RULES.TITLE",
     },
-    weaponMasteries: {
-      title: "BFREF.MENU.WEAPONMASTERIES.TITLE",
-      setting: {
-        key: "showweaponMasteries",
-        name: "BFREF.MENU.WEAPONMASTERIES.SETTING_NAME",
-      },
-      items: () =>
-        createReferenceSubMenuEntriesFromSourceData({
-          source: "weaponMasteries",
-          callback: async ({ key, menu }) => {
-            const reference = `weaponMastery=${key}`;
-            insertText({ text: `&Reference[${reference}]`, menu });
-          },
-        }),
-    },
-    areaTargetTypes: {
-      title: "BFREF.MENU.AREATARGETTYPES.TITLE",
-      setting: {
-        key: "showareaTargetTypes",
-        name: "BFREF.MENU.AREATARGETTYPES.SETTING_NAME",
-      },
-      items: () =>
-        createReferenceSubMenuEntriesFromSourceData({
-          source: "areaTargetTypes",
-          callback: async ({ key, menu }) => {
-            insertText({ text: `&Reference[${key}]`, menu });
-          },
-        }),
-    },
     itemProperties: {
       title: "BFREF.MENU.ITEMPROPERTIES.TITLE",
       setting: {
@@ -158,38 +129,8 @@ export function getMenuConfig() {
       },
       items: () =>
         createReferenceSubMenuEntriesFromSourceData({
-          source: "itemProperties",
-          callback: async ({ key, menu }) => {
-            insertText({ text: `&Reference[${key}]`, menu });
-          },
-        }),
-    },
-    abilities: {
-      title: "BFREF.MENU.ABILITIES.TITLE",
-      setting: {
-        key: "showabilities",
-        name: "BFREF.MENU.ABILITIES.SETTING_NAME",
-      },
-      items: () =>
-        createReferenceSubMenuEntriesFromSourceData({
-          source: "abilities",
-          callback: async ({ key, menu }) => {
-            insertText({ text: `&Reference[${key}]`, menu });
-          },
-        }),
-    },
-    skills: {
-      title: "BFREF.MENU.SKILLS.TITLE",
-      setting: {
-        key: "showskills",
-        name: "BFREF.MENU.SKILLS.SETTING_NAME",
-      },
-      items: () =>
-        createReferenceSubMenuEntriesFromSourceData({
-          source: "skills",
-          callback: async ({ key, menu }) => {
-            insertText({ text: `&Reference[${key}]`, menu });
-          },
+          referenceType: "property",
+          callback: async ({ key, menu }) => insertReference({ key, menu, type: "property" }),
         }),
     },
     damageTypes: {
@@ -200,10 +141,8 @@ export function getMenuConfig() {
       },
       items: () =>
         createReferenceSubMenuEntriesFromSourceData({
-          source: "damageTypes",
-          callback: async ({ key, menu }) => {
-            insertText({ text: `&Reference[${key}]`, menu });
-          },
+          referenceType: "damageType",
+          callback: async ({ key, menu }) => insertReference({ key, menu, type: "damageType" }),
         }),
     },
     creatureTypes: {
@@ -214,10 +153,8 @@ export function getMenuConfig() {
       },
       items: () =>
         createReferenceSubMenuEntriesFromSourceData({
-          source: "creatureTypes",
-          callback: async ({ key, menu }) => {
-            insertText({ text: `&Reference[${key}]`, menu });
-          },
+          referenceType: "creatureType",
+          callback: async ({ key, menu }) => insertReference({ key, menu, type: "creatureType" }),
         }),
     },
     detectPattern: {

@@ -222,7 +222,7 @@ export default class DamageFormulaDialog extends HandlebarsApplicationMixin(
               );
             } catch (e) {
               console.warn(
-                "Black Flag Easy References | DamageFormulaDialog: Could not convert initial types to Set, defaulting to empty.",
+                "Black Flag Easy Reference | DamageFormulaDialog: Could not convert initial types to Set, defaulting to empty.",
                 e
               );
               part.types = new Set();
@@ -265,7 +265,7 @@ class DamageFormulaModel extends foundry.abstract.DataModel {
       }),
       parts: new ArrayField(
         new SchemaField({
-          formula: new black-flag.dataModels.fields.FormulaField({ required: true }),
+          formula: new StringField({ required: true }),
           types: new SetField(
             new StringField({
               required: true,

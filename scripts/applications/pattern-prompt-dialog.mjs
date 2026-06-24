@@ -82,7 +82,7 @@ export default class PatternPromptDialog extends HandlebarsApplicationMixin(
       };
       return context;
     } catch (err) {
-      console.error("Black Flag Easy References | PatternPromptDialog | Error preparing context:", err);
+      console.error("Black Flag Easy Reference | PatternPromptDialog | Error preparing context:", err);
       throw err;
     }
   }
@@ -94,7 +94,7 @@ export default class PatternPromptDialog extends HandlebarsApplicationMixin(
       this.resolve = null;
     } else {
       console.warn(
-        "Black Flag Easy References | PatternPromptDialog | Resolve function was null when handling action:",
+        "Black Flag Easy Reference | PatternPromptDialog | Resolve function was null when handling action:",
         action,
       );
     }
@@ -115,7 +115,7 @@ export default class PatternPromptDialog extends HandlebarsApplicationMixin(
       dialog.render(true);
       return dialog.promise;
     } catch (err) {
-      console.error("Black Flag Easy References | PatternPromptDialog | Error during create/render:", err);
+      console.error("Black Flag Easy Reference | PatternPromptDialog | Error during create/render:", err);
       return Promise.reject(err);
     }
   }

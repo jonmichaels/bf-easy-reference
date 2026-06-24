@@ -123,9 +123,8 @@ export default class CheckFormulaDialog extends HandlebarsApplicationMixin(
 		context.abilities = CONFIG.BlackFlag.abilities;
 		context.skills = CONFIG.BlackFlag.skills;
 
-		let toolChoices = await black-flag.documents.Trait.choices("tool");
-		const tools = toolChoices.asSet().reduce((acc, k) => {
-			acc[k] = black-flag.documents.Trait.keyLabel(`tool:${k}`);
+		const tools = Object.values(CONFIG.BlackFlag.enrichment.lookup.tools ?? {}).reduce((acc, entry) => {
+			acc[entry.key] = entry.label;
 			return acc;
 		}, {});
 

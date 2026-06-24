@@ -13,7 +13,7 @@ export function initSettings(items) {
         .localeCompare(game.i18n.localize(b.setting.name)),
     )
     .forEach((value) => {
-      console.log("Black Flag Easy References | registering setting", value);
+      console.log("Black Flag Easy Reference | registering setting", value);
       game.settings.register("bf-easy-reference", value.setting.key, {
         name: value.setting.name,
         scope: "world",

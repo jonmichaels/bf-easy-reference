@@ -1,7 +1,7 @@
 // @ts-check
 
 /**
- * @typedef MenuConfigItem    A menu item in the Black Flag Easy References menu at the top level.
+ * @typedef MenuConfigItem    A menu item in the Black Flag Easy Reference menu at the top level.
  * @property {string} title   The text to show for the menu item.
  * @property {MenuItemClickCallback} [onMenuItemClick]    What to do when the menu item is clicked.
  * @property {SubMenuItem[] | (() => SubMenuItem[])} [items]    Submenu items, or a function for retrieving submenu items.

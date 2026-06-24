@@ -52,34 +52,10 @@ export function getDetectionSubMenuItems() {
         startPatternScan(menu, "rule", (text) => insertText({ text, menu })),
     },
     {
-      title: "BFREF.MENU.WEAPONMASTERIES.TITLE",
-      key: "detect-weaponMastery",
-      onMenuItemClick: (menu) =>
-        startPatternScan(menu, "weaponMastery", insertText),
-    },
-    {
-      title: "BFREF.MENU.AREATARGETTYPES.TITLE",
-      key: "detect-areaTargetType",
-      onMenuItemClick: (menu) =>
-        startPatternScan(menu, "areaTargetType", insertText),
-    },
-    {
       title: "BFREF.MENU.ITEMPROPERTIES.TITLE",
       key: "detect-spellProperty",
       onMenuItemClick: (menu) =>
-        startPatternScan(menu, "spellProperty", insertText),
-    },
-    {
-      title: "BFREF.MENU.ABILITIES.TITLE",
-      key: "detect-ability",
-      onMenuItemClick: (menu) =>
-        startPatternScan(menu, "ability", (text) => insertText({ text, menu })),
-    },
-    {
-      title: "BFREF.MENU.SKILLS.TITLE",
-      key: "detect-skill",
-      onMenuItemClick: (menu) =>
-        startPatternScan(menu, "skill", (text) => insertText({ text, menu })),
+        startPatternScan(menu, "spellProperty", (text) => insertText({ text, menu })),
     },
     {
       title: "BFREF.MENU.DAMAGETYPES.TITLE",
@@ -91,7 +67,7 @@ export function getDetectionSubMenuItems() {
       title: "BFREF.MENU.CREATURETYPES.TITLE",
       key: "detect-creatureType",
       onMenuItemClick: (menu) =>
-        startPatternScan(menu, "creatureType", insertText),
+        startPatternScan(menu, "creatureType", (text) => insertText({ text, menu })),
     },
   ];
 }

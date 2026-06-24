@@ -50,25 +50,13 @@ export async function startPatternScan(
 	let mapCheck = true;
 	if (enricherType === "damage" && !langConfig.damageTypeKeyMap)
 		mapCheck = false;
-	if (
-		(enricherType === "check" ||
-			enricherType === "save" ||
-			enricherType === "ability") &&
-		!langConfig.abilityKeyMap
-	)
+	if ((enricherType === "check" || enricherType === "save") && !langConfig.abilityKeyMap)
 		mapCheck = false;
-	if (
-		(enricherType === "check" || enricherType === "skill") &&
-		(!langConfig.skillKeyMap || !langConfig.toolKeyMap)
-	)
+	if (enricherType === "check" && (!langConfig.skillKeyMap || !langConfig.toolKeyMap))
 		mapCheck = false;
 	if (enricherType === "condition" && !langConfig.conditionKeyMap)
 		mapCheck = false;
 	if (enricherType === "rule" && !langConfig.ruleKeyMap) mapCheck = false;
-	if (enricherType === "weaponMastery" && !langConfig.weaponMasteryKeyMap)
-		mapCheck = false;
-	if (enricherType === "areaTargetType" && !langConfig.areaTargetTypeKeyMap)
-		mapCheck = false;
 	if (enricherType === "spellProperty" && !langConfig.spellPropertyKeyMap)
 		mapCheck = false;
 	if (enricherType === "damageType" && !langConfig.damageTypeKeyMap)
@@ -259,11 +247,11 @@ async function findAndPromptNextMatch() {
 							matchResult[patternConfig.concentrationGroup2]
 						) {
 							console.warn(
-								`Black Flag Easy References | Save matched ("${fullMatchText}"), but failed to resolve key data. AbilityStr: "${abilityStr}", ConcentrationStr: "${concentrationStr}", DCStr: "${dcStr}"`
+								`Black Flag Easy Reference | Save matched ("${fullMatchText}"), but failed to resolve key data. AbilityStr: "${abilityStr}", ConcentrationStr: "${concentrationStr}", DCStr: "${dcStr}"`
 							);
 						} else {
 							console.error(
-								`Black Flag Easy References | Save matched ("${fullMatchText}"), but logic failed to categorize into Branch 1 or 2.`
+								`Black Flag Easy Reference | Save matched ("${fullMatchText}"), but logic failed to categorize into Branch 1 or 2.`
 							);
 						}
 						dataExtracted = false;
@@ -365,7 +353,7 @@ async function findAndPromptNextMatch() {
 					} else {
 						if (checkTypeFound !== null) {
 							console.warn(
-								`Black Flag Easy References | Check matched ("${fullMatchText}"), structure OK, but failed to resolve key for type: "${checkTypeFound}"`
+								`Black Flag Easy Reference | Check matched ("${fullMatchText}"), structure OK, but failed to resolve key for type: "${checkTypeFound}"`
 							);
 						}
 					}
@@ -450,7 +438,7 @@ async function findAndPromptNextMatch() {
 									initialData.parts[0].types.add(key);
 								} else {
 									console.warn(
-										`Black Flag Easy References | Damage type "${name}" (processed from "${damageTypesStr}") not found in map for language "${lang}".`
+										`Black Flag Easy Reference | Damage type "${name}" (processed from "${damageTypesStr}") not found in map for language "${lang}".`
 									);
 								}
 							}
@@ -458,7 +446,7 @@ async function findAndPromptNextMatch() {
 						dataExtracted = true;
 					} else {
 						console.warn(
-							`Black Flag Easy References | Damage matched ("${fullMatchText}"), but failed criteria: Formula='${formula}', KeywordPresent=${damageKeywordPresent}, TypesString='${damageTypesStr}'`
+							`Black Flag Easy Reference | Damage matched ("${fullMatchText}"), but failed criteria: Formula='${formula}', KeywordPresent=${damageKeywordPresent}, TypesString='${damageTypesStr}'`
 						);
 					}
 				} else if (type === "attack") {
@@ -484,12 +472,12 @@ async function findAndPromptNextMatch() {
 							dataExtracted = true;
 						} else {
 							console.warn(
-								`Black Flag Easy References | Condition matched ("${fullMatchText}"), but failed to resolve key for: "${conditionNameStr}"`
+								`Black Flag Easy Reference | Condition matched ("${fullMatchText}"), but failed to resolve key for: "${conditionNameStr}"`
 							);
 						}
 					} else {
 						console.warn(
-							`Black Flag Easy References | Condition matched ("${fullMatchText}"), but name string or map was missing.`
+							`Black Flag Easy Reference | Condition matched ("${fullMatchText}"), but name string or map was missing.`
 						);
 					}
 				} else if (type === "rule") {
@@ -503,49 +491,12 @@ async function findAndPromptNextMatch() {
 							dataExtracted = true;
 						} else {
 							console.warn(
-								`Black Flag Easy References | Rule matched ("${fullMatchText}"), but failed to resolve key for: "${ruleNameStr}"`
+								`Black Flag Easy Reference | Rule matched ("${fullMatchText}"), but failed to resolve key for: "${ruleNameStr}"`
 							);
 						}
 					} else {
 						console.warn(
-							`Black Flag Easy References | Rule matched ("${fullMatchText}"), but name string or map was missing.`
-						);
-					}
-				} else if (type === "weaponMastery") {
-					//Gets mastery name and maps to system key
-					const masteryNameStr = matchResult[patternConfig.masteryNameGroup];
-					const currentMasteryMap = langConfig.weaponMasteryKeyMap;
-					if (masteryNameStr && currentMasteryMap) {
-						referenceKey =
-							currentMasteryMap[masteryNameStr.toLowerCase().trim()];
-						if (referenceKey) {
-							dataExtracted = true;
-						} else {
-							console.warn(
-								`Black Flag Easy References | Rule matched ("${fullMatchText}"), but failed to resolve key for: "${masteryNameStr}"`
-							);
-						}
-					} else {
-						console.warn(
-							`Black Flag Easy References | Rule matched ("${fullMatchText}"), but name string or map was missing.`
-						);
-					}
-				} else if (type === "areaTargetType") {
-					//Gets area target name and maps to system key
-					const areaNameStr = matchResult[patternConfig.areaNameGroup];
-					const currentAreaMap = langConfig.areaTargetTypeKeyMap;
-					if (areaNameStr && currentAreaMap) {
-						referenceKey = currentAreaMap[areaNameStr.toLowerCase().trim()];
-						if (referenceKey) {
-							dataExtracted = true;
-						} else {
-							console.warn(
-								`Black Flag Easy References | Area Target Type matched ("${fullMatchText}"), but failed to resolve key for: "${areaNameStr}"`
-							);
-						}
-					} else {
-						console.warn(
-							`Black Flag Easy References | Area Target Type matched ("${fullMatchText}"), but name string or map was missing.`
+							`Black Flag Easy Reference | Rule matched ("${fullMatchText}"), but name string or map was missing.`
 						);
 					}
 				} else if (type === "spellProperty") {
@@ -559,48 +510,12 @@ async function findAndPromptNextMatch() {
 							dataExtracted = true;
 						} else {
 							console.warn(
-								`Black Flag Easy References | Spell Property matched ("${fullMatchText}"), but failed to resolve key for: "${propertyNameStr}"`
+								`Black Flag Easy Reference | Spell Property matched ("${fullMatchText}"), but failed to resolve key for: "${propertyNameStr}"`
 							);
 						}
 					} else {
 						console.warn(
-							`Black Flag Easy References | Spell Property matched ("${fullMatchText}"), but name string or map was missing.`
-						);
-					}
-				} else if (type === "ability") {
-					//Gets ability name and maps to system key
-					const abilityNameStr = matchResult[patternConfig.abilityNameGroup];
-					const currentMap = langConfig.abilityKeyMap;
-					if (abilityNameStr && currentMap) {
-						referenceKey = currentMap[abilityNameStr.toLowerCase().trim()];
-						if (referenceKey) {
-							dataExtracted = true;
-						} else {
-							console.warn(
-								`Black Flag Easy References | Ability matched ("${fullMatchText}"), but failed to resolve key for: "${abilityNameStr}"`
-							);
-						}
-					} else {
-						console.warn(
-							`Black Flag Easy References | Ability matched ("${fullMatchText}"), but name string or map was missing.`
-						);
-					}
-				} else if (type === "skill") {
-					//Gets skill name and maps to system key
-					const skillNameStr = matchResult[patternConfig.skillNameGroup];
-					const currentMap = langConfig.skillKeyMap;
-					if (skillNameStr && currentMap) {
-						referenceKey = currentMap[skillNameStr.toLowerCase().trim()];
-						if (referenceKey) {
-							dataExtracted = true;
-						} else {
-							console.warn(
-								`Black Flag Easy References | Skill matched ("${fullMatchText}"), but failed to resolve key for: "${skillNameStr}"`
-							);
-						}
-					} else {
-						console.warn(
-							`Black Flag Easy References | Skill matched ("${fullMatchText}"), but name string or map was missing.`
+							`Black Flag Easy Reference | Spell Property matched ("${fullMatchText}"), but name string or map was missing.`
 						);
 					}
 				} else if (type === "damageType") {
@@ -614,12 +529,12 @@ async function findAndPromptNextMatch() {
 							dataExtracted = true;
 						} else {
 							console.warn(
-								`Black Flag Easy References | Damage Type matched ("${fullMatchText}"), but failed to resolve key for: "${damageTypeNameStr}"`
+								`Black Flag Easy Reference | Damage Type matched ("${fullMatchText}"), but failed to resolve key for: "${damageTypeNameStr}"`
 							);
 						}
 					} else {
 						console.warn(
-							`Black Flag Easy References | Damage Type matched ("${fullMatchText}"), but name string or map was missing.`
+							`Black Flag Easy Reference | Damage Type matched ("${fullMatchText}"), but name string or map was missing.`
 						);
 					}
 				} else if (type === "creatureType") {
@@ -632,12 +547,12 @@ async function findAndPromptNextMatch() {
 							dataExtracted = true;
 						} else {
 							console.warn(
-								`Black Flag Easy References | Creature Type matched ("${fullMatchText}"), but failed to resolve key for: "${typeNameStr}"`
+								`Black Flag Easy Reference | Creature Type matched ("${fullMatchText}"), but failed to resolve key for: "${typeNameStr}"`
 							);
 						}
 					} else {
 						console.warn(
-							`Black Flag Easy References | Creature Type matched ("${fullMatchText}"), but name string or map was missing.`
+							`Black Flag Easy Reference | Creature Type matched ("${fullMatchText}"), but name string or map was missing.`
 						);
 					}
 				}
@@ -698,7 +613,7 @@ async function findAndPromptNextMatch() {
 			view.focus(); // To keep focus on editor for visual selection
 		} catch (e) {
 			// If selection fails, continues scan from next position
-			console.error("Black Flag Easy References | Error during selection dispatch or focus:", e);
+			console.error("Black Flag Easy Reference | Error during selection dispatch or focus:", e);
 			currentScanState.lastIndex = nextScanIndex;
 			await findAndPromptNextMatch();
 			return;
@@ -712,21 +627,17 @@ async function findAndPromptNextMatch() {
 				let enricherText = null;
 
 				// these are the types that generate a direct &Reference link
-				const referenceTypes = [
-					"weaponMastery",
-					"areaTargetType",
-					"spellProperty",
-					"ability",
-					"skill",
-					"damageType",
-					"creatureType",
-				];
+				const referenceTypes = {
+					spellProperty: "property",
+					damageType: "damageType",
+					creatureType: "creatureType",
+				};
 
 				// Generates enricher text either directly or via existing dialog
-				if (referenceTypes.includes(type)) {
+				if (type in referenceTypes) {
 					// Checks if referenceKey was successfully resolved during extraction
 					if (referenceKey) {
-						enricherText = `&Reference[${referenceKey}]`;
+						enricherText = `&Reference[${referenceTypes[type]}=${referenceKey}]`;
 					} else {
 						enricherText = null;
 					}
@@ -843,7 +754,7 @@ function getDialogClassForType(type) {
 			return RuleFormulaDialog;
 
 		default:
-			// Types handled by direct reference insertion (weaponMastery, areaTargetType, etc.) return null here.
+			// Types handled by direct reference insertion return null here.
 			return null;
 	}
 }
