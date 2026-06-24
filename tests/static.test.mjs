@@ -77,4 +77,10 @@ assert(read('templates/heal/formulas.hbs').includes('value="{{value}}"'), 'heal 
 assert(read('scripts/applications/save-formula.mjs').includes('CONFIG.BlackFlag.abilities.localizedOptions'), 'save dialog should use localized ability options');
 assert(read('templates/save/formulas.hbs').includes('value="{{value}}"'), 'save template should render localized option arrays');
 
+
+const en = JSON.parse(read('lang/en.json'));
+assert.equal(en.BFREF.MENU.CHECKS.TITLE, 'Ability Checks');
+assert.equal(en.BFREF.MENU.SAVES.TITLE, 'Saving Throws');
+assert.notEqual(en.BFREF.MENU.CHECKS.TITLE, en.BFREF.MENU.SAVES.TITLE, 'ability checks and saving throws must remain distinct menu labels');
+
 console.log('static checks passed');
