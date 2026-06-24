@@ -3,7 +3,6 @@
 /** @import { MenuConfigItem, SubMenuItem } from "./types/_types.mjs" */
 
 import AttackFormulaDialog from "./applications/attack-formula.mjs";
-import AwardFormulaDialog from "./applications/award-formula.mjs";
 import CheckFormulaDialog from "./applications/check-formula.mjs";
 import ConditionFormulaDialog from "./applications/condition-formula.mjs";
 import DamageFormulaDialog from "./applications/damage-formula.mjs";
@@ -87,17 +86,6 @@ export function getMenuConfig() {
         name: "BFREF.MENU.CONDITIONTYPES.SETTING_NAME",
       },
       title: "BFREF.MENU.CONDITIONTYPES.TITLE",
-    },
-    award: {
-      onMenuItemClick: async (menu) => {
-        const text = await AwardFormulaDialog.create();
-        insertText({ text, menu });
-      },
-      setting: {
-        key: "showaward",
-        name: "BFREF.MENU.AWARD.SETTING_NAME",
-      },
-      title: "BFREF.MENU.AWARD.TITLE",
     },
     lookup: {
       onMenuItemClick: async (menu) => {

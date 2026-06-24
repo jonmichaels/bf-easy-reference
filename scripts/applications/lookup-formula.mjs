@@ -105,40 +105,33 @@ export default class LookupFormulaDialog extends HandlebarsApplicationMixin(Appl
    */
   _prepareTrackableOptions() {
     const options = [];
-    const trackable = CONFIG.BlackFlag.trackableAttributes;
+    const seen = new Set();
+    const trackable = CONFIG.Actor.trackableAttributes ?? {};
 
-    const processObject = (obj, path = "") => {
-      if (obj && typeof obj === "object" && !Array.isArray(obj)) {
-        for (const [key, value] of Object.entries(obj)) {
-          const newPath = path ? `${path}.${key}` : `@${key}`;
-          if (value === true) {
-            options.push({
-              value: newPath,
-              label: newPath
-            });
-          }
-          else if (value && typeof value === "object") {
-            processObject(value, newPath);
-          }
-        }
-      }
+    const addOption = (path, group) => {
+      if (!path || seen.has(path)) return;
+      seen.add(path);
+      const option = BlackFlag.utils.getAttributeOption(path);
+      options.push({
+        value: `@${path}`,
+        label: option.label ?? path,
+        group: option.group ?? group,
+      });
     };
 
-    processObject(trackable);
-
-    const specificOptions = [
-      { value: "@attributes.spell.dc", label: "@attributes.spell.dc" },
-      { value: "@attributes.spell.attack", label: "@attributes.spell.attack" },
-      { value: "@details.type.config.label", label: "@details.type.config.label" }
-    ];
-
-    for (const option of specificOptions) {
-      if (!options.some(o => o.value === option.value)) {
-        options.push(option);
+    for (const [actorType, categories] of Object.entries(trackable)) {
+      const actorLabel = CONFIG.Actor.typeLabels?.[actorType] ?? actorType;
+      const group = game.i18n.localize(actorLabel);
+      for (const paths of Object.values(categories)) {
+        for (const path of paths) addOption(path, group);
       }
     }
 
-    return options;
+    return options.sort((a, b) => {
+      const groupSort = (a.group ?? "").localeCompare(b.group ?? "");
+      if (groupSort) return groupSort;
+      return a.label.localeCompare(b.label);
+    });
   }
 
   /**

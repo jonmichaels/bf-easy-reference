@@ -8,7 +8,7 @@
           <option value="">{{localize "BFREF.DIALOG.PLACEHOLDER"}}</option>
           {{#each trackableOptions}}
           <option value="{{this.value}}" {{#if (eq ../attributePath.value this.value)}}selected{{/if}}>
-            {{this.label}}
+            {{#if this.group}}{{this.group}}: {{/if}}{{this.label}}
           </option>
           {{/each}}
         </select>

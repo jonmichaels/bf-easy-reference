@@ -85,4 +85,12 @@ assert(read('scripts/applications/check-formula.mjs').includes('`[[/check ${comm
 assert(read('scripts/applications/save-formula.mjs').includes('const commandType = this.#model.useConcentration ? "concentration" : "save";'), 'Saving Throws menu should still emit Black Flag save/concentration rolls');
 assert.notEqual(en.BFREF.MENU.CHECKS.TITLE, en.BFREF.MENU.SAVES.TITLE, 'checks and saving throws must remain distinct menu labels');
 
+
+assert(!read('scripts/config.mjs').includes('AwardFormulaDialog'), 'Awards menu should be hidden because Black Flag does not render /award enrichers');
+assert(!read('scripts/config.mjs').includes('showaward'), 'Awards menu setting should not be registered for Black Flag');
+assert(read('scripts/applications/lookup-formula.mjs').includes('CONFIG.Actor.trackableAttributes'), 'lookup dialog should use Foundry/Black Flag trackable actor attributes');
+assert(read('scripts/applications/lookup-formula.mjs').includes('BlackFlag.utils.getAttributeOption(path)'), 'lookup dialog should use Black Flag human-readable attribute labels');
+assert.equal(en.BFREF.MENU.ITEMPROPERTIES.TITLE, 'Properties');
+assert.equal(en.BFREF.MENU.ITEMPROPERTIES.SETTING_NAME, 'Show Properties');
+
 console.log('static checks passed');

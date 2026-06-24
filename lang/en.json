@@ -104,8 +104,8 @@
         "TITLE": "Healing formula"
       },
       "ITEMPROPERTIES": {
-        "SETTING_NAME": "Show Spell Properties",
-        "TITLE": "Spell Properties"
+        "SETTING_NAME": "Show Properties",
+        "TITLE": "Properties"
       },
       "LOOKUP": {
         "SETTING_NAME": "Show Lookup",
