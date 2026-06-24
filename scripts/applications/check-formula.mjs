@@ -62,7 +62,7 @@ export default class CheckFormulaDialog extends HandlebarsApplicationMixin(
 		for (const { type } of this.#model.checks) {
 			if (!type) continue;
 
-			if (Object.keys(this.toolsMap || {}).includes(type)) {
+			if ((this.toolsMap || []).some((tool) => tool.value === type)) {
 				checks.push(`tool=${type}`);
 			} else {
 				checks.push(type);
@@ -120,13 +120,14 @@ export default class CheckFormulaDialog extends HandlebarsApplicationMixin(
 			value: this.#model.passive,
 		};
 
-		context.abilities = CONFIG.BlackFlag.abilities;
-		context.skills = CONFIG.BlackFlag.skills;
+		context.abilities = CONFIG.BlackFlag.abilities.localizedOptions;
+		context.skills = CONFIG.BlackFlag.skills.localizedOptions;
 
 		const tools = Object.values(CONFIG.BlackFlag.enrichment.lookup.tools ?? {}).reduce((acc, entry) => {
-			acc[entry.key] = entry.label;
+			if (!entry?.key || acc.some((tool) => tool.value === entry.key)) return acc;
+			acc.push({ value: entry.key, label: entry.label });
 			return acc;
-		}, {});
+		}, []);
 
 		this.toolsMap = tools;
 		context.tools = tools;
@@ -264,13 +265,10 @@ class CheckFormulaModel extends foundry.abstract.DataModel {
 			}),
 			checks: new foundry.data.fields.ArrayField(
 				new foundry.data.fields.SchemaField({
-					type: new foundry.data.fields.StringField({ required: true }),
+					type: new foundry.data.fields.StringField({ required: false, blank: true }),
 				}),
 				{
-					initial: () => {
-						const defaultType = Object.keys(CONFIG.BlackFlag.abilities)[0] || "";
-						return [{ type: defaultType }];
-					},
+					initial: () => [{ type: CONFIG.BlackFlag.abilities.localizedOptions[0]?.value ?? "" }],
 				}
 			),
 		};

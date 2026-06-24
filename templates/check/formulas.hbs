@@ -10,17 +10,17 @@
         <select name="checks.{{idx}}.type">
           <optgroup label="{{localize "BFREF.MENU.ABILITIES.TITLE"}}">
             {{#each ../abilities}}
-            <option value="{{@key}}" {{#if (eq ../type.value @key)}}selected{{/if}}>{{this.label}}</option>
+            <option value="{{value}}" {{#if (eq ../type.value value)}}selected{{/if}}>{{label}}</option>
             {{/each}}
           </optgroup>
           <optgroup label="{{localize "BFREF.MENU.SKILLS.TITLE"}}">
             {{#each ../skills}}
-            <option value="{{@key}}" {{#if (eq ../type.value @key)}}selected{{/if}}>{{this.label}}</option>
+            <option value="{{value}}" {{#if (eq ../type.value value)}}selected{{/if}}>{{label}}</option>
             {{/each}}
           </optgroup>
           <optgroup label="{{localize "BFREF.MENU.TOOLS.TITLE"}}">
             {{#each ../tools}}
-            <option value="{{@key}}" {{#if (eq ../type.value @key)}}selected{{/if}}>{{this}}</option>
+            <option value="{{value}}" {{#if (eq ../type.value value)}}selected{{/if}}>{{label}}</option>
             {{/each}}
           </optgroup>
         </select>

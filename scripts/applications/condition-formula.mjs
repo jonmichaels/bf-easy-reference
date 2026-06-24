@@ -68,7 +68,7 @@ export default class ConditionFormulaDialog extends HandlebarsApplicationMixin(
   get #text() {
     if (!this.#model.condition) return null;
 
-    let command = `&Reference[${this.#model.condition}`;
+    let command = `&Reference[condition=${this.#model.condition}`;
 
     if (!this.#model.apply) {
       command += ` apply=false`;
@@ -84,7 +84,7 @@ export default class ConditionFormulaDialog extends HandlebarsApplicationMixin(
   async _prepareContext(options) {
     const context = {};
 
-    const conditionChoices = Object.entries(CONFIG.BlackFlag.conditionTypes ?? {})
+    const conditionChoices = Object.entries(CONFIG.BlackFlag.conditions ?? {})
       .filter(([key, data]) => data?.reference)
       .reduce((acc, [key, data]) => {
         // Account for label prop name change over time. Easy compatibility.
@@ -191,7 +191,7 @@ export default class ConditionFormulaDialog extends HandlebarsApplicationMixin(
 class ConditionFormulaModel extends foundry.abstract.DataModel {
   /** @inheritdoc */
   static defineSchema() {
-    const conditionIds = Object.entries(CONFIG.BlackFlag.conditionTypes ?? {})
+    const conditionIds = Object.entries(CONFIG.BlackFlag.conditions ?? {})
       .filter(([key, data]) => data?.reference)
       .map(([key, _]) => key);
 
@@ -203,7 +203,7 @@ class ConditionFormulaModel extends foundry.abstract.DataModel {
         blank: false,
         initial: initialCondition,
         choices: conditionIds,
-        label: "BFREF.CONDITIONTYPES.TITLE",
+        label: "BFREF.MENU.CONDITIONTYPES.TITLE",
       }),
       apply: new BooleanField({
         required: true,

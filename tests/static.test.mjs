@@ -59,4 +59,12 @@ assert(!read('scripts/config.mjs').includes('skills: {'), 'skill reference menu 
 assert(!read('scripts/detection/menu-setup.mjs').includes('detect-ability'), 'ability reference detection should not be registered for Black Flag');
 assert(!read('scripts/detection/menu-setup.mjs').includes('detect-skill'), 'skill reference detection should not be registered for Black Flag');
 
+
+assert(read('scripts/applications/check-formula.mjs').includes('CONFIG.BlackFlag.abilities.localizedOptions'), 'check dialog should use localized ability options');
+assert(read('scripts/applications/check-formula.mjs').includes('CONFIG.BlackFlag.skills.localizedOptions'), 'check dialog should use localized skill options');
+assert(read('scripts/applications/check-formula.mjs').includes('acc.some((tool) => tool.value === entry.key)'), 'check dialog should de-duplicate tool lookup aliases');
+assert(read('templates/check/formulas.hbs').includes('value="{{value}}"'), 'check template should render localized option arrays');
+assert(read('scripts/applications/condition-formula.mjs').includes('CONFIG.BlackFlag.conditions'), 'condition dialog should use Black Flag conditions config');
+assert(read('scripts/applications/condition-formula.mjs').includes('&Reference[condition=${this.#model.condition}'), 'condition dialog should emit typed Black Flag condition references');
+
 console.log('static checks passed');
